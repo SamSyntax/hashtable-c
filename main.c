@@ -72,10 +72,10 @@ void test_naive(char *content, hash_table *naive_table) {
 }
 
 int main(int argc, char **argv) {
+  if (argc < 2)
+    return 1;
   char *content = read_file(argv[1], "r");
   if (!content)
-    return 1;
-  if (argc < 2)
     return 1;
   void *table = malloc(TABLE_SIZE * sizeof(token_t));
   void *naive_table = malloc(TABLE_SIZE * sizeof(token_t));
