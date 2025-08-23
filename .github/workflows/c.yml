@@ -16,7 +16,9 @@ jobs:
     - name: configure
       run: wget https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt
     - name: build c
-      run: make run
+      run: cc -Wall -Wextra -ggdb -pedantic -o bit ./main.c && ./bit ./t8.shakespeare.txt
+
     - name: build c++
-      run: make runCpp
+      run: g++ -Wall -Wextra -ggdb -pedantic -o hashcpp ./hash.cpp && ./hashcpp ./t8.shakespeare.txt
+
 

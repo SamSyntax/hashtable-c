@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
   if (!content)
     return 1;
   void *table = malloc(TABLE_SIZE * sizeof(token_t));
-  void *naive_table = malloc(TABLE_SIZE * sizeof(token_t));
+  // void *naive_table = malloc(TABLE_SIZE * sizeof(token_t));
   hash_table hash_table_impl = {
       .table = table,
       .capacity = TABLE_SIZE,
