@@ -12,5 +12,5 @@ git clone https://github.com/SamSyntax/hashtable-c
 wget https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt
 ```
 ```bash
-make
+chmod +x ./build.sh && ./build.sh
 ```
