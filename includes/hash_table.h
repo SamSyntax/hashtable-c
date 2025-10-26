@@ -25,4 +25,4 @@ void init_table(hash_table *hash_table);
 size_t hash(char *str, size_t capacity);
 void *tokenize(char *input, hash_table *table);
 void free_table(token_t *table, size_t capacity);
-void naive(char *input, hash_table* hash_table);
+void naive(char *input, hash_table *hash_table);

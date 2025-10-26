@@ -1,4 +1,4 @@
-#include "hash_table.h"
+#include "../includes/hash_table.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -63,19 +63,19 @@ void *tokenize(char *input, hash_table *hash_table) {
       }
 
       for (size_t i = 0; i < hash_table->capacity; i++) {
-        token_t *old_entry = &((token_t*)hash_table->table)[i];
+        token_t *old_entry = &((token_t *)hash_table->table)[i];
         if (old_entry->key != NULL) {
-            size_t new_key = hash(old_entry->key, new_capacity);
-            size_t original_new_key = new_key;
-            while (new_table[new_key].key != NULL) {
-                new_key = (new_key + 1) % new_capacity;
-                if (new_key == original_new_key) {
-                    break;
-                }
+          size_t new_key = hash(old_entry->key, new_capacity);
+          size_t original_new_key = new_key;
+          while (new_table[new_key].key != NULL) {
+            new_key = (new_key + 1) % new_capacity;
+            if (new_key == original_new_key) {
+              break;
             }
-            new_table[new_key].key = old_entry->key;
-            new_table[new_key].value = old_entry->value;
-            new_table[new_key].hash_key = new_key;
+          }
+          new_table[new_key].key = old_entry->key;
+          new_table[new_key].value = old_entry->value;
+          new_table[new_key].hash_key = new_key;
         }
       }
       free(hash_table->table);
@@ -140,7 +140,7 @@ void naive(char *input, hash_table *hash_table) {
       if (naive_table[i].key == NULL) {
         naive_table[i].key = strdup(token);
         if (naive_table[i].key == NULL) {
-            continue;
+          continue;
         }
         naive_table[i].value = 1;
         hash_table->size++;

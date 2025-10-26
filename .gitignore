@@ -2,4 +2,7 @@ t8.shakespeare.txt
 test.txt
 .git
 build
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
 

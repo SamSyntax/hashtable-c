@@ -2,23 +2,20 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: wget https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt
-    - name: build c
-      run: cc -Wall -Wextra -ggdb -pedantic -o bit ./main.c && ./bit ./t8.shakespeare.txt
+      - uses: actions/checkout@v4
+      - name: configure
+        run: wget https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt
+      - name: build c
+        run: ./build.sh
 
-    - name: build c++
-      run: g++ -Wall -Wextra -ggdb -pedantic -o hashcpp ./hash.cpp && ./hashcpp ./t8.shakespeare.txt
-
-
+      - name: build c++
+        run: g++ -Wall -Wextra -ggdb -pedantic -o hashcpp ./hash.cpp && ./hashcpp ./t8.shakespeare.txt

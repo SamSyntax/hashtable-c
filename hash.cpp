@@ -35,16 +35,16 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  std::string content((std::istreambuf_iterator<char>(ifs)),
-                      (std::istreambuf_iterator<char>()));
+  const std::string content((std::istreambuf_iterator<char>(ifs)),
+                            (std::istreambuf_iterator<char>()));
 
   ifs.close();
   auto start = std::chrono::high_resolution_clock::now();
 
   tokenize(content, hash_table);
 
-  auto end = std::chrono::high_resolution_clock::now();
-  auto duration = std::chrono::duration<double>(end - start);
+  const auto end = std::chrono::high_resolution_clock::now();
+  const auto duration = std::chrono::duration<double>(end - start);
   std::cout << "Token counts:\n";
   std::vector<std::pair<std::string, size_t>> sorted_tokens(hash_table.begin(),
                                                             hash_table.end());
